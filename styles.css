@@ -2,23 +2,53 @@
 	font-family: 'Amatic SC', cursive;
 	font-size: 60px;
 }
-#time {
-	width: 175px;
+#sidebar {
+	width: 315px;
+	height: 525px;
 	border: 10px solid hotpink;
 	text-align: center;
 	border-radius: 20px;
 	float: right;
 }
-#task {
-	margin: 0 auto;
-	width: 350px;
-	height: 500px;
-	background: hotpink;
-	background: url("images/Evening/5min.png") no-repeat;
+#time {
+	width: 100%;
 }
-#taskSidebar {
+#secs {
+	font-size: 30px;
+}
+#cards {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
 
 }
 .smallTask {
+	border: 3px solid purple;
+	height: 117.6px;
+	width: 80px;
+	margin: 10px;
+}
+#taskWrapper {
+	width: 350px;
+	height: 500px;
+	margin: 0 auto;
+	padding-top: 3px;
+
+}
+#task {
+	width: 319px;
+	height: 469px;
+	background: hotpink;
+	background: url("images/Evening/homework.png");
+	margin: 0 auto;
+}
+#timer {
+	border: 10px solid hotpink;
+	text-align: center;
+	border-radius: 20px;	width: 200px;
+	height: 50px;
+	margin: 0 auto;
+	margin-bottom: 2px;
+	font-size: 40px;
 
 }
