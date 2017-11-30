@@ -65,6 +65,7 @@ function addTime(timeAdd){
 	}}
 
 function setCountdown(){
+
 	if (countdownSec == 0){
 		countdownMin --;
 		countdownSec = 59;
@@ -73,7 +74,15 @@ function setCountdown(){
 		countdownSec --;
 	}
 
-	document.querySelector("#timer").innerHTML = countdownMin + ":" +countdownSec;
+	document.querySelector("#timer").innerHTML = countdownMin + "mins " +countdownSec + "secs";
+
+	if (countdownMin == 5 && countdownSec == 0){
+		document.querySelector("#hurry").play();
+	}
+
+	if (countdownMin == 0 && countdownSec == 0){
+		document.querySelector("#ohno").play();
+	}
 }
 
 function setTimes(){
@@ -105,13 +114,134 @@ function setTimes(){
 	setCountdown();
 	setInterval(setCountdown, 1000);
 }
+function confetti(){
+	var wrapper = document.querySelector("#canvasWrapper");
+	//play sound
+	document.querySelector("#cheer").play();
+	//create canvas
+	wrapper.innerHTML = '<canvas id="canvas" width="700" height="560"></canvas>';
+	//move canvas wrapper to main part of screen
+	wrapper.style.width = "700px";
+	wrapper.style.height = "560px";
+	wrapper.style.margin = "0 auto";
+	wrapper.style.marginTop = "-520px";
+	wrapper.style.zIndex = "-100";
 
+	var canvas = document.getElementById("canvas");
+	var c = canvas.getContext("2d");
+
+	var colorArray = ["hotpink", "red", "lightblue", "goldenrod", "purple", "white"];
+	//create confetti
+	function single(x, y, color){
+
+		c.beginPath();
+		c.moveTo(x,y);
+		c.lineTo(x+5,y+5);
+		c.strokeStyle = color;
+		c.lineWidth = 10;
+		c.stroke();
+	}
+	single(100,100,"red");
+
+	var conf = {
+		0: {
+			y: Math.round(Math.random() * 20)
+		},
+		1: {
+			y: Math.round(Math.random() * 20)
+		},
+		2: {
+			y: Math.round(Math.random() * 20)
+		},
+		3: {
+			y: Math.round(Math.random() * 20)
+		},
+		4: {
+			y: Math.round(Math.random() * 20)
+		},
+		5: {
+			y: Math.round(Math.random() * 20)
+		},
+		6: {
+			y: Math.round(Math.random() * 20)
+		},
+		7: {
+			y: Math.round(Math.random() * 20)
+		},
+		8: {
+			y: Math.round(Math.random() * 20)
+		},
+		9: {
+			y: Math.round(Math.random() * 20)
+		},
+		10: {
+			y: Math.round(Math.random() * 20)
+		},
+		11: {
+			y: Math.round(Math.random() * 20)
+		},
+		12: {
+			y: Math.round(Math.random() * 20)
+		},
+		13: {
+			y: Math.round(Math.random() * 20)
+		},
+		14: {
+			y: Math.round(Math.random() * 20)
+		},
+		15: {
+			y: Math.round(Math.random() * 20)
+		},
+		16: {
+			y: Math.round(Math.random() * 20)
+		},
+		17: {
+			y: Math.round(Math.random() * 20)
+		},
+		18: {
+			y: Math.round(Math.random() * 20)
+		},
+		19: {
+			y: Math.round(Math.random() * 20)
+		},
+		20: {
+			y: Math.round(Math.random() * 20)
+		}
+	}
+
+	//set inital random values for confetti in object
+	for(var k = 0; k <= 20; k++){
+		conf[k].x = Math.round(Math.random() * 1000);
+		conf[k].color = colorArray[Math.round(Math.random() * 5)];	
+	}
+
+	function animate(){
+			c.clearRect(0,0,700,560);
+		for (var l = 0; l <= 20; l++){
+			single(conf[l].x, conf[l].y, conf[l].color);
+			single(conf[l].x-500, conf[l].y-50, conf[l].color);
+			single(conf[l].x+500, conf[l].y-50, conf[l].color);
+			single(conf[l].x-250, conf[l].y-75, conf[l].color);
+			single(conf[l].x+250, conf[l].y-75, conf[l].color);
+			single(conf[l].x, conf[l].y-150, conf[l].color);
+			single(conf[l].x-400, conf[l].y-200, conf[l].color);
+			single(conf[l].x+400, conf[l].y-200, conf[l].color);
+			single(conf[l].x-150, conf[l].y-275, conf[l].color);
+			single(conf[l].x+150, conf[l].y-275, conf[l].color);
+			conf[l].y++;
+
+		}
+	}
+
+	setInterval(animate, 1000/60);
+	animate();
+}
 function switchCards(){
 	var taskCard = document.querySelector("#task");
 	//flip out current card
 	taskCard.classList = "animated flipOutX";
 	//play "yay!" sound
-	//document.querySelector("#yay").play();
+	document.querySelector("#yay").play();
 	//flip current card to done in side panel
 	document.getElementById(taskCounter).style.backgroundImage = "url(" + assets["done"] + ")";
 	//increase card counter
@@ -133,12 +263,8 @@ function switchCards(){
 	
 	
 	if (taskCounter == 10 ) {
-		console.log("woohoo!");
+		confetti();
 	}
-
-	
-	//
-	console.log(this);
 }
 
 var hour;
@@ -160,3 +286,4 @@ setClock();
 setInterval(setClock, 1000);
 document.querySelector("#task").addEventListener("click", switchCards);
 document.querySelector("#timer").addEventListener("click", setTimes);
+
