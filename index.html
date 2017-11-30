@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
   </head>
   <body>
-  	<div id="sidebar">
+  	<div class="sidebar right">
 	  	<div id="time">Loading....</div>
 	  	<div id="cards">
 	  	<div class="smallTask" id="1"></div>
@@ -23,10 +23,24 @@
 	  	<div class="smallTask" id="9"></div>
 	  </div>
   	</div>
+  	<div class="sidebar left">
+	  	<div id="taskList">Tasks</div>
+	  <ul>
+	  	<li>homework (15mins) - <span class="timeCalc"></span></li>
+	  	<li>pack backpack (5mins) - <span class="timeCalc"></span></li>
+	  	<li>sack lunch (10mins) - <span class="timeCalc"></span></li>
+	  	<li>free time (15mins) - <span class="timeCalc"></span></li>
+	  	<li>get changed (5mins) - <span class="timeCalc"></span></li>
+	  	<li>bathroom (5mins) - <span class="timeCalc"></span></li>
+	  	<li>brush teeth (5mins) - <span class="timeCalc"></span></li>
+	  	<li>go to bed - <span class="timeCalc"></span></li>
+	  </ul>
+  	</div>
   <div id="taskWrapper">
   <div id="timer">Start Timer</div>
   <div id="task"></div>
   </div>
+  <audio id="yay" src="sounds/yay.wav" autostart="false"></audio>
   <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>

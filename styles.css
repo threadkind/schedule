@@ -1,14 +1,29 @@
 * {
 	font-family: 'Amatic SC', cursive;
 	font-size: 60px;
+	text-decoration: none;
+
 }
-#sidebar {
-	width: 315px;
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffcece+0,ffb2b2+100 */
+background: rgb(255,206,206); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(255,206,206,1) 0%, rgba(255,178,178,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(255,206,206,1) 0%,rgba(255,178,178,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,206,206,1) 0%,rgba(255,178,178,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcece', endColorstr='#ffb2b2',GradientType=1 ); /* IE6-9 */
+}
+.sidebar {
+	width: 300px;
 	height: 525px;
 	border: 10px solid hotpink;
 	text-align: center;
 	border-radius: 20px;
+}
+.right {
 	float: right;
+}
+.left {
+	float: left;
 }
 #time {
 	width: 100%;
@@ -23,10 +38,24 @@
 
 }
 .smallTask {
-	border: 3px solid purple;
 	height: 117.6px;
 	width: 80px;
 	margin: 10px;
+}
+#taskList{
+}
+ul {
+	margin-top: 20px;
+	margin-left: -20px;
+}
+li {
+	font-size: 30px;
+	list-style: none;
+	text-align: left;
+	padding: 0;
+}
+.timeCalc {
+	font-size: 30px;
 }
 #taskWrapper {
 	width: 350px;
