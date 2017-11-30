@@ -3,12 +3,11 @@ var assets = {
 	2: "images/Evening/backpack.png",
 	3: "images/Evening/sackLunch.png",
 	4: "images/Evening/freeTime.png",
-	5: "images/Evening/5min.png",
-	6: "images/Evening/changed.png",
-	7: "images/Evening/bathroom.png",
-	8: "images/Evening/teeth.png",
-	9: "images/Evening/bedtime.png",
-	10: "images/Evening/youdidit.png",
+	5: "images/Evening/changed.png",
+	6: "images/Evening/bathroom.png",
+	7: "images/Evening/teeth.png",
+	8: "images/Evening/bedtime.png",
+	9: "images/Evening/youdidit.png",
 	done: "images/Evening/done.png"
 } 
 
@@ -36,7 +35,8 @@ function time(){
 
 function setClock(){
 	time();
-	document.querySelector("#time").innerHTML = hour + ':' + minute + '<span id="secs">  ' + second + '</span>';}
+	document.querySelector("#time").innerHTML = hour + ':' + minute + '<span id="secs">  ' + second + '</span>';
+}
 
 function addTime(timeAdd){
 	var newMin = parseInt(minute) + 1 + timeAdd;
@@ -83,7 +83,9 @@ function setCountdown(){
 	if (countdownMin == 0 && countdownSec == 0){
 		document.querySelector("#ohno").play();
 	}
-}
+	//set card in left sidebar
+	setTaskNow();
+	}
 
 function setTimes(){
 	var taskList = [].slice.call(document.querySelectorAll(".timeCalc"));
@@ -262,10 +264,30 @@ function switchCards(){
 	}); 
 	
 	
-	if (taskCounter == 10 ) {
+	if (taskCounter == 9 ) {
 		confetti();
 	}
 }
+function taskNow(picture){
+	var taskNow = document.getElementById("taskNow");
+	taskNow.style.backgroundImage = 'url(' + picture + ')';
+	taskNow.style.backgroundSize = 'cover';
+	taskNow.style.margin = '0 auto';
+	taskNow.style.marginTop = '10px';
+	taskNow.style.marginBottom	 = '5px';
+}
+
+function setTaskNow(){
+	for (var m = 1; m < 10; m++ ){
+		var time1 = taskTimes[m-1];
+		var time2 = taskTimes[m];
+			console.log(time1,time2,assets[1], countdownMin);
+		if(countdownMin < time1 && countdownMin >= time2){
+			taskNow(assets[m]);
+			//console.log(time1, time2, assets[photoi]);
+		}
+}}
+var taskTimes = [66, 50, 45, 35, 20, 5, 5, 5, 0];
 
 var hour;
 var minute;
@@ -278,7 +300,8 @@ var timesArray = [];
 var countdownMin = 65;
 var countdownSec = 00;
 
-for(var i = 1; i <= 9; i++){
+
+for(var i = 1; i <= 8; i++){
 	document.getElementById(i).style.backgroundImage = "url(" + assets[i] +")";
 	document.getElementById(i).style.backgroundSize = "cover";
 };
@@ -287,3 +310,4 @@ setInterval(setClock, 1000);
 document.querySelector("#task").addEventListener("click", switchCards);
 document.querySelector("#timer").addEventListener("click", setTimes);
 
+taskNow(assets[1]);

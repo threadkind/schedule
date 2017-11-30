@@ -2,7 +2,10 @@
 	font-family: 'Amatic SC', cursive;
 	font-size: 60px;
 	text-decoration: none;
-
+}
+a {
+	text-decoration: none;
+	color: purple;
 }
 body {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffcece+0,ffb2b2+100 */
@@ -38,6 +41,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcece', end
 
 }
 .smallTask {
+	height: 117.6px;
+	width: 80px;
+	margin: 10px;
+}
+.smallTaskLeft {
 	height: 117.6px;
 	width: 80px;
 	margin: 10px;
