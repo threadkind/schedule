@@ -10,7 +10,7 @@ var assets = {
 	9: "images/Evening/youdidit.png",
 	done: "images/Evening/done.png"
 } 
-
+//function to get the time
 function time(){
 	var d = new Date();
 
@@ -32,12 +32,12 @@ function time(){
 	else {
 		second = d.getSeconds();
 	}}
-
+//function to set the clock on the page
 function setClock(){
 	time();
 	document.querySelector("#time").innerHTML = hour + ':' + minute + '<span id="secs">  ' + second + '</span>';
 }
-
+//function to set the time for the end if individual tasks
 function addTime(timeAdd){
 	var newMin = parseInt(minute) + 1 + timeAdd;
 
@@ -63,7 +63,7 @@ function addTime(timeAdd){
 	else {
 		timesArray.push(timedHour + ":" + timedMin);
 	}}
-
+//set the countdown and set the card in the left taskbar
 function setCountdown(){
 
 	if (countdownSec == 0){
