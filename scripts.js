@@ -82,6 +82,7 @@ function setCountdown(){
 
 	if (countdownMin == 0 && countdownSec == 0){
 		document.querySelector("#ohno").play();
+		location.reload();
 	}
 	//set card in left sidebar
 	setTaskNow();
@@ -290,8 +291,9 @@ function setTaskNow(){
 			//console.log(time1, time2, assets[photoi]);
 		}
 }}
+//array for task times
 var taskTimes = [66, 51, 46, 36, 21, 16, 11, 6, 1];
-
+//variables for the clock
 var hour;
 var minute;
 var second;
@@ -312,5 +314,8 @@ setClock();
 setInterval(setClock, 1000);
 document.querySelector("#task").addEventListener("click", switchCards);
 document.querySelector("#timer").addEventListener("click", setTimes);
+document.querySelector("button").addEventListener("click", function(){
+	location.reload();
+});
 
 taskNow(assets[1]);

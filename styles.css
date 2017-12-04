@@ -55,7 +55,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcece', end
 
 }
 ul {
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-left: -20px;
 }
 li {
@@ -89,5 +89,10 @@ li {
 	margin: 0 auto;
 	margin-bottom: 2px;
 	font-size: 40px;
-
+}
+button {
+	font-size: 30px;
+	border-radius: 10px;
+	margin: 0 auto;
+	background: hotpink;
 }
