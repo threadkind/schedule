@@ -50,7 +50,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcece', end
 	width: 80px;
 	margin: 10px;
 }
-#taskList{
+#taskNow{
+	margin-top: -10px;		
+
 }
 ul {
 	margin-top: 20px;

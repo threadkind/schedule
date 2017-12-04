@@ -63,7 +63,7 @@ function addTime(timeAdd){
 	else {
 		timesArray.push(timedHour + ":" + timedMin);
 	}}
-//set the countdown and set the card in the left taskbar
+//fucntion to set the countdown and set the card in the left taskbar
 function setCountdown(){
 
 	if (countdownSec == 0){
@@ -86,7 +86,7 @@ function setCountdown(){
 	//set card in left sidebar
 	setTaskNow();
 	}
-
+//function to set the all the times of the tasks in the left sidebar
 function setTimes(){
 	var taskList = [].slice.call(document.querySelectorAll(".timeCalc"));
 
@@ -116,6 +116,7 @@ function setTimes(){
 	setCountdown();
 	setInterval(setCountdown, 1000);
 }
+//function to create and animate confetti when tasks are complete
 function confetti(){
 	var wrapper = document.querySelector("#canvasWrapper");
 	//play sound
@@ -238,6 +239,7 @@ function confetti(){
 	setInterval(animate, 1000/60);
 	animate();
 }
+
 function switchCards(){
 	var taskCard = document.querySelector("#task");
 	//flip out current card
@@ -268,15 +270,16 @@ function switchCards(){
 		confetti();
 	}
 }
+//function to change individual task in left sidebar
 function taskNow(picture){
 	var taskNow = document.getElementById("taskNow");
 	taskNow.style.backgroundImage = 'url(' + picture + ')';
 	taskNow.style.backgroundSize = 'cover';
 	taskNow.style.margin = '0 auto';
-	taskNow.style.marginTop = '10px';
+	taskNow.style.marginTop = '5px';
 	taskNow.style.marginBottom	 = '5px';
 }
-
+//function to set the task in the left sidebar
 function setTaskNow(){
 	for (var m = 1; m < 10; m++ ){
 		var time1 = taskTimes[m-1];
@@ -287,7 +290,7 @@ function setTaskNow(){
 			//console.log(time1, time2, assets[photoi]);
 		}
 }}
-var taskTimes = [66, 50, 45, 35, 20, 5, 5, 5, 0];
+var taskTimes = [66, 51, 46, 36, 21, 16, 11, 6, 1];
 
 var hour;
 var minute;
@@ -301,7 +304,7 @@ var countdownMin = 65;
 var countdownSec = 00;
 
 
-for(var i = 1; i <= 8; i++){
+for(var i = 1; i <= 9; i++){
 	document.getElementById(i).style.backgroundImage = "url(" + assets[i] +")";
 	document.getElementById(i).style.backgroundSize = "cover";
 };
